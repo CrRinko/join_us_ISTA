@@ -6,15 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="join-us-ISTA" />
+    <!-- script files -->
     <script type="application/x-javascript">
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
-
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
+//        addEventListener("load", function () {
+//            setTimeout(hideURLbar, 0);
+//        }, false);
+//
+//        function hideURLbar() {
+//            window.scrollTo(0, 1);
+//        }
     </script>
+    <script src="script/jquery-3.1.0.min.js"></script>
+    <script src="script/check.js"></script>
     <!-- font files  -->
     <!-- /font files  -->
     <!-- css files -->
@@ -25,16 +28,15 @@
 <body>
     <h1>学生信息科技协会</h1>
     <div class="log">
-        <div class="content" style="display:none">
+        <div class="content" style="" id="input_content">
             <h2>加入我们</h2>
-            <form>
-                <input type="text" name="name" value="姓名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '姓名';}">
-                <span></span>
-                <input type="text" name="id" value="学号" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '学号';}">
-                <input type="text" name="class" value="班级" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '班级';}">
-                <input type="tel" name="tel" value="联系电话" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系电话';}">
-                <select name='department' onchange=''>
-                    <option value="" hidden="true">请选择希望加入的部门</option>
+            <form onsubmit="return false;">
+                <input type="text" name="name" id="name" value="姓名"/>
+                <input type="text" name="id" id="id" value="学号"/>
+                <input type="text" name="class" id="class" value="班级"/>
+                <input type="text" name="tel" id="tel" value="联系电话"/>
+                <select name='department' id="department">
+                    <option value="unknown" hidden="true">请选择希望加入的部门</option>
                     <option value='hardware'>硬件部</option>
                     <option value='electronic technique'>电子技术部</option>
                     <option value='software'>网创部</option>
@@ -44,7 +46,7 @@
                 <input type="submit" class="register" id="btn_submit" value="提交申请">
             </form>
         </div>
-        <div class="content" style="">
+        <div class="content" style="display:none" id="result_content">
             <div class="result">
                 <img src="images/checked.png" style=“width:40%”/>
                 <p>您的申请已提交，请留意短信等候面试通知。</p>
