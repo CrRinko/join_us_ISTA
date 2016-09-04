@@ -60,11 +60,11 @@ $(document).ready(function () {
                 url: "app/submit.php",
                 type: "POST",
                 data: {
-                    name: $("#name").val(),
-                    stu_id: $("#id").val(),
-                    class: $("#class").val(),
-                    tel: $("#tel").val(),
-                    department: $("#department option:selected").val()
+                    name: $("#name").val().trim(),
+                    stu_id: $("#id").val().trim(),
+                    class: $("#class").val().trim(),
+                    tel: $("#tel").val().trim(),
+                    department: $("#department option:selected").val().trim()
                 },
                 success: function (data) {
                     if (data == 'success') {
