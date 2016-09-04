@@ -43,21 +43,39 @@ $(document).ready(function () {
     $("#btn_submit").click(function () {
         var checked = true;
         for (var i = 0; i < 4; i++) {
-            var col=$(":text").eq(i).css("color");
-            var val=$(":text").eq(i).val();
+            var col = $(":text").eq(i).css("color");
+            var val = $(":text").eq(i).val();
             if (col == "rgb(255, 0, 0)") {
                 checked = false;
                 break;
-            }else{
-                if(val=="姓名"||val=="学号"||val=="班级"||val=="联系电话"){
-                    checked=false;
+            } else {
+                if (val == "姓名" || val == "学号" || val == "班级" || val == "联系电话") {
+                    checked = false;
                     break;
                 }
             }
         }
         if (checked && $("#department option:selected").text() != "请选择希望加入的部门") {
-            $("#input_content").css("display","none");
-            $("#result_content").css("display","block");
+            $.ajax({
+                url: "app/submit.php",
+                type: "POST",
+                data: {
+                    name: $("#name").val(),
+                    stu_id: $("#id").val(),
+                    class: $("#class").val(),
+                    tel: $("#tel").val(),
+                    department: $("#department option:selected").val()
+                },
+                success: function (data) {
+                    if (data == 'success') {
+                        $("#input_content").css("display", "none");
+                        $("#result_content").css("display", "block");
+                    }
+                    else{
+                        alert(data);
+                    }
+                }
+            });
         } else {
             alert("请完善表单内容后再提交！");
         }
