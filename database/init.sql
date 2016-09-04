@@ -11,3 +11,5 @@ create table Application(
 create user 'ista'@'localhost' identified by 'join_ista';
 grant all privileges on ISTA.* to ista@localhost;
 flush privileges;
+set character_set_database='utf8';
+set character_set_server='utf8';

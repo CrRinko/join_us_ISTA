@@ -7,6 +7,8 @@
  */
 try {
     $db = new PDO('mysql:host=localhost;dbname=ISTA', 'ista', 'join_ista');
+    $db->query("set names 'utf8'");
+    $db->query("set character set 'utf8'");
     $name = $_POST['name'];
     $stu_id = $_POST['stu_id'];
     $class = $_POST['class'];
