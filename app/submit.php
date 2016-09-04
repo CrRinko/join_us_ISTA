@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
 /**
  * Created by PhpStorm.
@@ -6,7 +7,8 @@
  * Time: 20:32
  */
 try {
-    $db = new PDO('mysql:host=localhost;dbname=ISTA', 'ista', 'join_ista');
+    $opt_values=array(PDO::ATTR_PERSISTENT=>true,PDO::ATTR_ERRMODE=>2,PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES utf8');
+    $db = new PDO('mysql:host=localhost;dbname=ISTA', 'ista', 'join_ista',$opt_values);
     $db->query("set names 'utf8'");
     $db->query("set character set 'utf8'");
     $name = $_POST['name'];
