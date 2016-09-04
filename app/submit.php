@@ -31,7 +31,7 @@ try {
         default:
             $department = 0;
     }
-    $sql_insert = "insert into application VALUES (uuid_short(),:name,:stu_id,:class,:tel,:department)";
+    $sql_insert = "insert into Application VALUES (uuid_short(),:name,:stu_id,:class,:tel,:department)";
     $sql = $db->prepare($sql_insert);
     $sql->bindValue(':name', $name);
     $sql->bindValue(':stu_id', $stu_id);
