@@ -43,8 +43,8 @@ try {
     $sql->bindValue(':tel', $tel);
     $sql->bindValue(':department', $department);
     $sql->execute();
-    echo 'success';
-//    echo $name."|".$stu_id."|".$class."|".$tel."|".$department;
+//    echo 'success';
+    echo $name."|".$stu_id."|".$class."|".$tel."|".$department;
 } catch (PDOException $e){
     echo $e->getMessage();
     die("Database Error: " . $e->getMessage());
