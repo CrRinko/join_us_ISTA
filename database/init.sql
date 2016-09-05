@@ -1,4 +1,4 @@
-create database ISTA;
+create database ISTA default charset utf8 collate utf8_general_ci;
 use ISTA;
 create table Application(
 	uuid bigint unsigned primary key,
@@ -7,9 +7,9 @@ create table Application(
 	class nchar(10),
 	tel char(12) not null,
 	department tinyint not null
-);
+)default CHARSET=utf8;
 create user 'ista'@'localhost' identified by 'join_ista';
 grant all privileges on ISTA.* to ista@localhost;
 flush privileges;
-set character_set_database='utf8';
-set character_set_server='utf8';
+
+-- 解决中文乱码问题：需要将Apache2的默认字符集，mysqld的默认字符集设置为utf8
